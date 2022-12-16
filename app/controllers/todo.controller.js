@@ -70,7 +70,7 @@ exports.findOne = (req, res) => {
     });
 };
 
-// 更新指定 ID 清单
+// update list with specific ID
 exports.update = (req, res) => {
   const id = req.params.id;
 

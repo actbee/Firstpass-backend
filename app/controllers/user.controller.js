@@ -33,10 +33,10 @@ exports.create = (req, res) => {
 
 // search from database
 exports.findAll = (req, res) => {
-  const title = req.query.email;
-  var condition = email ? { email: { [Op.like]: `%${email}%` } } : null;
+  const title = req.query.id;
+  var condition = title ? { title: { [Op.like]: `%${title}%` } } : null;
 
-  Todo.findAll({ where: condition })
+  Users.findAll({ where: condition })
     .then(data => {
       res.send(data);
     })
@@ -52,7 +52,7 @@ exports.findAll = (req, res) => {
 exports.findOne = (req, res) => {
   const id = req.params.id;
 
-  Todo.findByPk(id)
+  Users.findByPk(id)
     .then(data => {
       if (data) {
         res.send(data);
@@ -71,10 +71,10 @@ exports.findOne = (req, res) => {
 
 // update given email
 exports.update = (req, res) => {
-  const id = req.params.email;
+  const id = req.params.id;
 
   Users.update(req.body, {
-    where: { email: id }
+    where: { id: id }
   })
     .then(num => {
       if (num == 1) {
@@ -96,10 +96,10 @@ exports.update = (req, res) => {
 
 // Delete the specified id in the request
 exports.delete = (req, res) => {
-  const id = req.params.email;
+  const id = req.params.id;
 
   Users.destroy({
-    where: { email: id }
+    where: { id: id }
   })
     .then(num => {
       if (num == 1) {
