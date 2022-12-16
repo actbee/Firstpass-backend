@@ -1,8 +1,8 @@
 module.exports = {
-    HOST: "192.168.1.14",
-    USER: "actbee",
+    HOST: "127.0.0.1",
+    USER: "root",
     PASSWORD: "iamdan1998",
-    DB: "demo",
+    DB: "firstpass",
     port:3306,
     dialect: "mysql",
     pool: {
